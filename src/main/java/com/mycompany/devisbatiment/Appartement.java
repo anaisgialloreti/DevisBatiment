@@ -73,7 +73,10 @@ public class Appartement {
 
         hauteurPlafond = Piece.demanderInfoPiece(nbPiece, nbOuverturePorte, nbOuverturePorte, nomPiece, nbMur, nbFenetre, nbPorte, hauteurPlafond);
         Piece.afficherInfoPiece(nbPiece, nomPiece, nbMur, nbFenetre, nbPorte, hauteurPlafond);
-        Mur.calculerSurfaceMur(nbPiece, nbFenetre, nbPorte, nomPiece, nbMur, largeurMur, hauteurPlafond, surfaceMur, surfaceFenetre, surfacePorte, nbOuvertureFenetre, nbOuverturePorte);
+        Mur.demanderSurfaceMur(nbPiece, nbFenetre, nbPorte, nomPiece, nbMur, largeurMur, hauteurPlafond, surfaceMur, surfaceFenetre, surfacePorte, nbOuvertureFenetre, nbOuverturePorte);
+        Fenetre.demanderPositionOuvertureFenetre(nbPiece, nbFenetre, nbMur, nomPiece, nbOuvertureFenetre);
+        Porte.demanderPositionOuverturePorte(nbPiece, nbPorte, nbMur, nomPiece, nbOuverturePorte);
+        Mur.calculerSurfaceMur(nbPiece, nbMur, hauteurPlafond, largeurMur, nbOuvertureFenetre, nbOuverturePorte, surfaceFenetre, surfacePorte, surfaceMur);
         Mur.afficherSurfaceMur(nbPiece, nbMur, nomPiece, surfaceMur);
         Sol.appliquerMesurePiece(nbPiece, largeurMur, longueurPiece, largeurPiece, surfaceSolPiece);
         Sol.CalculerSurfaceSol(nbPiece, longueurPiece, largeurPiece, surfaceSolPiece);

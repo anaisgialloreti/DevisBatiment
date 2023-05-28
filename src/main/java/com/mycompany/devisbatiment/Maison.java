@@ -1,5 +1,17 @@
 package com.mycompany.devisbatiment;
 
+import static com.mycompany.devisbatiment.Appartement.hauteurPlafond;
+import static com.mycompany.devisbatiment.Appartement.largeurMur;
+import static com.mycompany.devisbatiment.Appartement.nbFenetre;
+import static com.mycompany.devisbatiment.Appartement.nbMur;
+import static com.mycompany.devisbatiment.Appartement.nbOuvertureFenetre;
+import static com.mycompany.devisbatiment.Appartement.nbOuverturePorte;
+import static com.mycompany.devisbatiment.Appartement.nbPiece;
+import static com.mycompany.devisbatiment.Appartement.nbPorte;
+import static com.mycompany.devisbatiment.Appartement.nomPiece;
+import static com.mycompany.devisbatiment.Appartement.surfaceFenetre;
+import static com.mycompany.devisbatiment.Appartement.surfaceMur;
+import static com.mycompany.devisbatiment.Appartement.surfacePorte;
 import java.io.IOException;
 
 public class Maison {
@@ -73,7 +85,10 @@ public class Maison {
 
         hauteurPlafond = Piece.demanderInfoPiece(nbPiece, nbOuverturePorte, nbOuverturePorte, nomPiece, nbMur, nbFenetre, nbPorte, hauteurPlafond);
         Piece.afficherInfoPiece(nbPiece, nomPiece, nbMur, nbFenetre, nbPorte, hauteurPlafond);
-        Mur.calculerSurfaceMur(nbPiece, nbFenetre, nbPorte, nomPiece, nbMur, largeurMur, hauteurPlafond, surfaceMur, surfaceFenetre, surfacePorte, nbOuvertureFenetre, nbOuverturePorte);
+        Mur.demanderSurfaceMur(nbPiece, nbFenetre, nbPorte, nomPiece, nbMur, largeurMur, hauteurPlafond, surfaceMur, surfaceFenetre, surfacePorte, nbOuvertureFenetre, nbOuverturePorte);
+        Fenetre.demanderPositionOuvertureFenetre(nbPiece, nbFenetre, nbMur, nomPiece, nbOuvertureFenetre);
+        Porte.demanderPositionOuverturePorte(nbPiece, nbPorte, nbMur, nomPiece, nbOuverturePorte);
+        Mur.calculerSurfaceMur(nbPiece, nbMur, hauteurPlafond, largeurMur, nbOuvertureFenetre, nbOuverturePorte, surfaceFenetre, surfacePorte, surfaceMur);
         Mur.afficherSurfaceMur(nbPiece, nbMur, nomPiece, surfaceMur);
         Sol.appliquerMesurePiece(nbPiece, largeurMur, longueurPiece, largeurPiece, surfaceSolPiece);
         Sol.CalculerSurfaceSol(nbPiece, longueurPiece, largeurPiece, surfaceSolPiece);

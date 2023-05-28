@@ -17,7 +17,7 @@ public class Mur {
     public static int nbOuverturePorte[][];
     
 
-    public static void calculerSurfaceMur(int nbPiece, int[] nbFenetre, int[] nbPorte, String[] nomPiece, int[] nbMur, double[][] largeurMur, double hauteurPlafond, double[][] surfaceMur, double surfaceFenetre, double surfacePorte, int[][] nbOuvertureFenetre, int[][] nbOuverturePorte) {
+    public static void demanderSurfaceMur(int nbPiece, int[] nbFenetre, int[] nbPorte, String[] nomPiece, int[] nbMur, double[][] largeurMur, double hauteurPlafond, double[][] surfaceMur, double surfaceFenetre, double surfacePorte, int[][] nbOuvertureFenetre, int[][] nbOuverturePorte) {
         for (int i = 0; i < nbPiece; i++) {
             System.out.println("Pour la pièce : " + nomPiece[i] + ", donnez la longueur du mur n°1 en mètre");
             largeurMur[i][0] = Lire.d();
@@ -26,8 +26,10 @@ public class Mur {
             largeurMur[i][1] = Lire.d();
             largeurMur[i][3] = largeurMur[i][1];
         }
-        double surface=0;
+    }   
         
+    public static void calculerSurfaceMur(int nbPiece, int[] nbMur, double hauteurPlafond, double[][] largeurMur, int[][] nbOuvertureFenetre, int[][] nbOuverturePorte, double surfaceFenetre, double surfacePorte, double[][] surfaceMur){
+        double surface=0;
         for (int i = 0; i < nbPiece; i++) {
             for (int j = 0; j < nbMur[i]; j++) {
                 surface = hauteurPlafond * largeurMur[i][j];
